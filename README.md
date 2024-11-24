@@ -1,12 +1,11 @@
 <p align="center">
-<img src=" height="40%" width="60%" alt="Logo"/>
+<img src="https://i.imgur.com/FZk3RA3.png" height="40%" width="60%" alt="Logo"/>
 </p>
 
 # Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines
 
 This tutorial demonstrates how to inspect network traffic between Azure Virtual Machines using **Wireshark** and how to experiment with **Network Security Groups (NSGs)** to manage traffic rules.
 
----
 
 ## Environments and Technologies Used
 - **Microsoft Azure (Virtual Machines/Compute)**
@@ -14,8 +13,8 @@ This tutorial demonstrates how to inspect network traffic between Azure Virtual 
 - **Wireshark (Protocol Analyzer)**
 
 ## Operating Systems Used
-- **Windows 10 (21H2)**
-- **Ubuntu Server 20.04**
+- **Windows 10 Pro 22H2**
+- **Ubuntu Server**
 
 ---
 
@@ -31,13 +30,13 @@ This tutorial demonstrates how to inspect network traffic between Azure Virtual 
 ### Step 1: Create Resources  
 1. Create a Resource Group in Azure.  
 2. Add two virtual machines (VMs):  
-   - **VM1**: Windows 10  
+   - **VM1**: Windows 10 Pro  
    - **VM2**: Ubuntu Server  
 3. Ensure both VMs are part of the same virtual network.  
 
-![1]()
-![2]()
-![3]()
+![1](https://i.imgur.com/wGCedqr.png)
+![2](https://i.imgur.com/lkEt16g.png)
+![3](https://i.imgur.com/ICPNVQ5.png)
 <br>
 
 ### Step 2: Configure VMs  
@@ -45,9 +44,9 @@ This tutorial demonstrates how to inspect network traffic between Azure Virtual 
 2. Install **Wireshark** on VM1.  
 3. Open PowerShell on VM1 and ensure you can ping VM2 using its **Private IP Address**.  
 
-![1]()
-![2]()
-![3]()
+![1](https://i.imgur.com/KC94o4G.png)
+![2](https://i.imgur.com/Y10I0vY.png)
+![3](https://i.imgur.com/jtw35Fi.png)
 <br>
 
 ### Step 3: Capture and Analyze ICMP Traffic  
@@ -55,9 +54,9 @@ This tutorial demonstrates how to inspect network traffic between Azure Virtual 
 2. Filter by **ICMP** to observe ping requests and responses.  
 3. Use `ping [private IP]` from VM1 to VM2.  
 
-![1]()
-![2]()
-![3]()
+![1](https://i.imgur.com/7jkQWWI.png)
+![2](https://i.imgur.com/Tio8C4I.png)
+![3](https://i.imgur.com/PZ0KKWf.png)
 <br>
 
 ### Step 4: Experiment with NSGs  
@@ -67,41 +66,32 @@ This tutorial demonstrates how to inspect network traffic between Azure Virtual 
 3. Observe how ping requests now time out.  
 4. Edit the rule to allow ICMP again.
 
-![1]()
-![2]()
-![3]()
+![1](https://i.imgur.com/Ab9xBb4.png)
+![2](https://i.imgur.com/GqpGhhm.png)
+![3](https://i.imgur.com/syZs4pi.png)
+![3](https://i.imgur.com/n8rbGvI.png)
+
 <br>
 
 ### Step 5: Inspect Other Traffic  
-1. **SSH Traffic**:  
-   - SSH into VM2 from VM1 using `ssh [private IP]`.  
-   - Observe traffic with **tcp.port == 22** in Wireshark.  
 
-![1]()
-![2]()
-![3]()
-<br>
-
-2. **DNS Traffic**:  
+1. **DNS Traffic**:  
    - Use `nslookup www.google.com` on VM1.  
    - Filter by **udp.port == 53** in Wireshark.  
-![1]()
-![2]()
-![3]()
+![1](https://i.imgur.com/K15Gxdd.png)
+![2](https://i.imgur.com/QndhqRO.png)
+
 <br>
 
 
-3. **RDP Traffic**:  
+2. **RDP Traffic**:  
    - Use **tcp.port == 3389** to view Remote Desktop traffic.  
 
-![1]()
-![2]()
-![3]()
+![1](https://i.imgur.com/n30Sd6K.png)
+
 <br>
 
->! For more details, visit the [Azure](add).
-
-
+>For more details, visit [Wireshark's](https://www.wireshark.org/) official website.
 ---
 
 ## FAQ  
